@@ -1,0 +1,9 @@
+{
+    "Testcase": "1",
+    "TestcaseDescription": "Order Placement Existing User",
+    "TestSummary": "Order Placement Existing User",
+    "Tags": "@sprint1 @regression @tc_4 @jiomart",
+    "Email": "karthik@cts-shop.com",
+    "Password":"password-1",
+    "ProductSearch":"Apple iPhone 6s Plus"
+}

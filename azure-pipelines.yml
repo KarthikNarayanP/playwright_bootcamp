@@ -1,0 +1,42 @@
+jobs:
+  - job: Execute_Test_Sets
+    strategy:
+      matrix:
+        JOB_1:
+          value: 1
+        JOB_2:
+          value: 2
+        JOB_3:
+          value: 3
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '16.x'
+    - script: |
+        npm install
+        npx playwright install
+      displayName: 'Install Dependencies'
+    - task: Bash@3
+      displayName: 'UI System Tests'        
+      inputs:
+          targetType: 'inline'
+          script: npx playwright test -g "@regression" --workers=5 --retries=1 --shard=$(value)/3
+    - task: PublishTestResults@2
+      displayName: 'Publish test results'
+      condition: always()
+      inputs:
+                  searchFolder: 'test/test-results'
+                  testResultsFormat: 'JUnit'
+                  testResultsFiles: 'results.xml' 
+                  mergeTestResults: true
+                  failTaskOnFailedTests: true
+                  testRunTitle: 'My End-To-End Tests'
+    - task: PublishPipelineArtifact@1
+      condition: always()
+      inputs:
+        targetPath: $(System.DefaultWorkingDirectory)/test/test-results
+        artifactName: TestResults_$(value)
+    

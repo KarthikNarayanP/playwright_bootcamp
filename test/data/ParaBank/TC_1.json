@@ -1,0 +1,22 @@
+{
+    "Testcase": "1",
+    "TestcaseDescription": "Parabank - Validate Login",
+    "TestSummary": "Parabank - Validate Login",
+    "Tags": "@sprint1 @regression @tc_1 @parabank",
+    "Name": "James Washington",
+    "First Name":"James",
+    "Last Name":"James",
+    "Address":"76 Main Holland",
+    "City":"New York",
+    "Street":"5th Coss Street",
+    "State":"USA",
+    "Zipcode":"45672",
+    "PhoneNumber":"9876543210",
+    "Accountnumber":"1234567",
+    "SSN":"1234567",
+    "VerificationAccountnumber":"1234567",
+    "Amount":"15362",
+    "Username":"asdeczxczxczxcrty",
+    "Password":"asderty",
+    "VerifyPassword":"asderty"
+}
