@@ -6,8 +6,6 @@ jobs:
           value: 1
         JOB_2:
           value: 2
-        JOB_3:
-          value: 3
     pool:
       vmImage: ubuntu-latest
 
