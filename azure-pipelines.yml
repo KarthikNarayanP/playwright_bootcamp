@@ -21,7 +21,7 @@ jobs:
       displayName: 'UI System Tests'        
       inputs:
           targetType: 'inline'
-          script: npx playwright test -g "@regression" --workers=5 --retries=1 --shard=$(value)/3
+          script: npx playwright test -g "@parabank" --workers=5 --retries=1 --shard=$(value)/3
     - task: PublishTestResults@2
       displayName: 'Publish test results'
       condition: always()
