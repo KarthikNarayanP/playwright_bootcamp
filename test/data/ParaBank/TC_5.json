@@ -1,8 +1,8 @@
 {
-    "Testcase": "4",
-    "TestcaseDescription": "Mock Accounts",
-    "TestSummary": "Mock Accounts",
-    "Tags": "@sprint1 @regression @tc_11 @parabank",
+    "Testcase": "5",
+    "TestcaseDescription": "Parabank - Validate Login - Dup1",
+    "TestSummary": "Parabank - Validate Login  - Dup1",
+    "Tags": "@sprint1 @regression @tc_1 @parabank",
     "Name": "James Washington",
     "First Name":"James",
     "Last Name":"James",
@@ -16,7 +16,7 @@
     "SSN":"1234567",
     "VerificationAccountnumber":"1234567",
     "Amount":"15362",
-    "Username":"qwertyuizxczxczxco",
-    "Password":"qwertyuio",
-    "VerifyPassword":"qwertyuio"
+    "Username":"asdeczxczxczxcrty",
+    "Password":"asderty",
+    "VerifyPassword":"asderty"
 }

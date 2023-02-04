@@ -55,3 +55,43 @@ test('[' + jsonTestData_TC4["Testcase"] + '] ' + ' - ' + jsonTestData_TC4["Testc
   await paraBankHomePageMethods.clickLogout();
   await paraBankLoginPageMethods.login(testData["Username"],testData["Password"]);
 });
+
+
+let jsonTestData_TC5 = JSON.parse(fs.readFileSync('./test/data/' + testParentIssueId + '/TC_5.json', 'utf-8'));
+
+test('[' + jsonTestData_TC5["Testcase"] + '] ' + ' - ' + jsonTestData_TC5["TestcaseDescription"] + ' - ' + jsonTestData_TC5["Tags"], async ({ page }) => {
+  let testData = jsonTestData_TC5;
+  const paraBankLoginPageMethods = new ParaBankLoginPageMethods(page, test.info());
+  const paraBankHomePageMethods = new ParaBankHomePageMethods(page, test.info());
+  const paraBankRegistrationPageMethods = new ParaBankRegistrationPageMethods(page, test.info());
+  const supportFactory = new SupportFactory(page, test.info());
+  let randomUsername = await supportFactory.generateRandomAplhabets(12);
+  testData["Username"] = randomUsername;
+  await paraBankLoginPageMethods.goto();
+  await paraBankHomePageMethods.clickRegister();
+  await paraBankRegistrationPageMethods.register(testData);
+  await paraBankRegistrationPageMethods.verifyRegistrationSuccess();
+  await paraBankHomePageMethods.clickLogout();
+  await paraBankLoginPageMethods.login(testData["Username"],testData["Password"]);
+  await paraBankHomePageMethods.verifyBillPayPresent();
+});
+
+
+let jsonTestData_TC6 = JSON.parse(fs.readFileSync('./test/data/' + testParentIssueId + '/TC_6.json', 'utf-8'));
+
+test('[' + jsonTestData_TC6["Testcase"] + '] ' + ' - ' + jsonTestData_TC6["TestcaseDescription"] + ' - ' + jsonTestData_TC6["Tags"], async ({ page }) => {
+  let testData = jsonTestData_TC6;
+  const paraBankLoginPageMethods = new ParaBankLoginPageMethods(page, test.info());
+  const paraBankHomePageMethods = new ParaBankHomePageMethods(page, test.info());
+  const paraBankRegistrationPageMethods = new ParaBankRegistrationPageMethods(page, test.info());
+  const supportFactory = new SupportFactory(page, test.info());
+  let randomUsername = await supportFactory.generateRandomAplhabets(12);
+  testData["Username"] = randomUsername;
+  await paraBankLoginPageMethods.goto();
+  await paraBankHomePageMethods.clickRegister();
+  await paraBankRegistrationPageMethods.register(testData);
+  await paraBankRegistrationPageMethods.verifyRegistrationSuccess();
+  await paraBankHomePageMethods.clickLogout();
+  await paraBankLoginPageMethods.login(testData["Username"],testData["Password"]);
+  await paraBankHomePageMethods.verifyBillPayPresent();
+});

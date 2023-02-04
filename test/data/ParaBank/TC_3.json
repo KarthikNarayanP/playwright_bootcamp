@@ -2,7 +2,7 @@
     "Testcase": "3",
     "TestcaseDescription": "Visual Validation - Login Screen",
     "TestSummary": "Visual Validation - Login Screen",
-    "Tags": "@sprint1 @regression @tc_11 @parabank @visual",
+    "Tags": "@sprint1 @regression @tc_11 @parabank",
     "Name": "James Washington",
     "First Name":"James",
     "Last Name":"James",
