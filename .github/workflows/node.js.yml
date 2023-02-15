@@ -38,8 +38,8 @@ jobs:
 
       - name: Run Regression Tests
         id: test
-        #run: npx playwright test -g "@regression" --workers=5 --retries=2 --update-snapshots --shard=${{ matrix.shard }}/${{ strategy.job-total }}
-        run: SELENIUM_REMOTE_URL=http://18.144.37.92:4444/wd/hub npx playwright test -g "@regression" --workers=5 --update-snapshots --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+        run: npx playwright test -g "@parabank" --workers=5 --retries=2 --update-snapshots --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+        #run: SELENIUM_REMOTE_URL=http://18.144.37.92:4444/wd/hub npx playwright test -g "@regression" --workers=5 --update-snapshots --shard=${{ matrix.shard }}/${{ strategy.job-total }}
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
