@@ -1,3 +1,5 @@
+[![Test Execution](https://github.com/KarthikNarayanP/playwright_bootcamp/actions/workflows/node.js.yml/badge.svg)](https://github.com/KarthikNarayanP/playwright_bootcamp/actions/workflows/node.js.yml)
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
