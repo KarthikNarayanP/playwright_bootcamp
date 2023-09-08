@@ -1,11 +1,17 @@
+parameters:
+  - name: parameter1
+    type: string
+    default: 'def1'  # Provide a default value if needed
+  - name: parameter2
+    type: string
+    default: 'def2'
+   
 jobs:
   - job: Execute_Test_Sets
     strategy:
       matrix:
         JOB_1:
           value: 1
-        JOB_2:
-          value: 2
     pool:
       vmImage: ubuntu-latest
 
@@ -14,6 +20,11 @@ jobs:
       inputs:
         versionSpec: '16.x'
     - script: |
+        echo "${{ parameters.parameter1 }}"
+        echo "${{ parameters.parameter2 }}"
+        # Add more echo statements for additional parameters
+      displayName: 'Print Parameters'
+    - script: |
         npm install
         npx playwright install
       displayName: 'Install Dependencies'
@@ -21,7 +32,7 @@ jobs:
       displayName: 'UI System Tests'        
       inputs:
           targetType: 'inline'
-          script: npx playwright test -g "@parabank" --workers=5 --retries=1 --shard=$(value)/2
+          script: npx playwright test -g "@parabank" --workers=5 --retries=1 --shard=$(value)/1
     - task: PublishTestResults@2
       displayName: 'Publish test results'
       condition: always()
@@ -37,4 +48,3 @@ jobs:
       inputs:
         targetPath: $(System.DefaultWorkingDirectory)/test/test-results
         artifactName: TestResults_$(value)
-    
