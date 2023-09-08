@@ -1,3 +1,9 @@
+trigger:
+- main
+
+pr:
+- '*'
+
 parameters:
   - name: parameter1
     type: string
@@ -5,7 +11,7 @@ parameters:
   - name: parameter2
     type: string
     default: 'def2'
-   
+
 jobs:
   - job: Execute_Test_Sets
     strategy:
@@ -37,12 +43,12 @@ jobs:
       displayName: 'Publish test results'
       condition: always()
       inputs:
-                  searchFolder: 'test/test-results'
-                  testResultsFormat: 'JUnit'
-                  testResultsFiles: 'results.xml' 
-                  mergeTestResults: true
-                  failTaskOnFailedTests: true
-                  testRunTitle: 'My End-To-End Tests'
+        searchFolder: 'test/test-results'
+        testResultsFormat: 'JUnit'
+        testResultsFiles: 'results.xml' 
+        mergeTestResults: true
+        failTaskOnFailedTests: true
+        testRunTitle: 'My End-To-End Tests'
     - task: PublishPipelineArtifact@1
       condition: always()
       inputs:
